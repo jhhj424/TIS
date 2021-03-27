@@ -1,4 +1,9 @@
 package boj;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
 /*
 https://www.acmicpc.net/problem/7576
  */
