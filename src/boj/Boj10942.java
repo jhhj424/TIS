@@ -42,12 +42,9 @@ public class Boj10942 {
         // 길이가 1인 경우
         for(int i = 1; i <= n; i++) {
             dp[i][i] = true;
-        }
-        // 길이가 2인 경우
-        for(int i = 1; i <= n - 1; i++) {
-            if(input[i] == input[i + 1]) {
-                dp[i][i + 1] = true;
-            }
+            // 길이가 2인 경우
+            if (input[i] == input[i-1])
+                dp[i - 1][i] = true;
         }
         // 길이가 3 이상인 경우 : 처음과 끝이 같고, 그 중간영역이 팰린드롬이면 전체가 팰린드롬
         for (int len = 3; len <= n; len++) {
