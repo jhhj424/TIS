@@ -9,7 +9,6 @@ https://www.acmicpc.net/problem/3197
 public class Boj3197 {
     static int r, c;
     static char[][] map;
-    static boolean[][] swanVisited;
     static Pair[] swans = new Pair[2];
     static int[] dy = {-1, 1, 0, 0}, dx = {0, 0, -1, 1};
     static int day = 0;
@@ -22,8 +21,6 @@ public class Boj3197 {
         r = Integer.parseInt(input[0]);
         c = Integer.parseInt(input[1]);
         map = new char[r][c];
-        swanVisited = new boolean[r][c];
-
 
         int idx = 0;
         for (int i = 0; i < r; i++) {
@@ -41,10 +38,9 @@ public class Boj3197 {
         }
 
         // 출발 백조
-        swanVisited[swans[0].y][swans[0].x] = true;
         swanQ.offer(swans[0]);
 
-        loop: while (!isMoveSwan()) {
+        while (!isMoveSwan()) {
             meltArea();
             day++;
         }
