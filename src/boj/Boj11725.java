@@ -9,18 +9,6 @@ public class Boj11725 {
     static List<Integer>[] list;
     static boolean[] visit;
     static int n;
-
-    private static void dfs(int v) {
-        visit[v] = true;
-
-        for (int i : list[v]) {
-            if (!visit[i]) {
-                parents[i] = v;
-                dfs(i);
-            }
-        }
-    }
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         n = scan.nextInt();
@@ -37,6 +25,18 @@ public class Boj11725 {
         }
 
         dfs(1);
-        for (int i = 2; i <= n; i++) System.out.println(parents[i]);
+        for (int i = 2; i <= n; i++)
+            System.out.println(parents[i]);
+    }
+
+    private static void dfs(int now) {
+        visit[now] = true;
+
+        for (int i : list[now]) {
+            if (!visit[i]) {
+                parents[i] = now;
+                dfs(i);
+            }
+        }
     }
 }
